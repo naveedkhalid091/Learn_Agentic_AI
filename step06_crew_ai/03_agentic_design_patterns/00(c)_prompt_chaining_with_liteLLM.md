@@ -2,16 +2,16 @@
 
 This guide explains how to set up and run a Prompt Chaining project using crewAI in combination with liteLLM. Follow the steps below to create your project, install the required dependencies, and write your prompt-chaining schema.
 
-1. 1. Basic Project Setup:
+1. **Basic Project Setup:**
 
-   a) Initialize the Project Package:
+   **a) Initialize the Project Package:**
    Open your terminal in the directory where you want to create your package and run:
 
    ```bash
    uv init --package projectName
    ```
 
-   b) Navigate to the Project Directory:
+   **b) Navigate to the Project Directory:**
 
    Change to the newly created project directory:
 
@@ -19,7 +19,7 @@ This guide explains how to set up and run a Prompt Chaining project using crewAI
    cd projectName
    ```
 
-   c) Add Dependencies:
+   **c) Add Dependencies:**
 
    Add both creawai and liteLLM as dependencies using the uv package manager:
 
@@ -28,11 +28,11 @@ This guide explains how to set up and run a Prompt Chaining project using crewAI
    uv add liteLLM
    ```
 
-   d) Create a Python File:
+   **d) Create a Python File:**
 
    Inside the `src` folder, create a Python file (for example, main.py) and write a simple function (e.g., a "Hello World" function).
 
-   e) Configure the Script:
+   **e) Configure the Script:**
 
    In your pyproject.toml file under the [project.scripts] section, add a script variable that points to your function:
 
@@ -41,7 +41,7 @@ This guide explains how to set up and run a Prompt Chaining project using crewAI
    start = "projectPath:functionName"
    ```
 
-   f) Run the Script:
+   **f) Run the Script:**
 
    Execute the script using the following command:
 
@@ -51,13 +51,13 @@ This guide explains how to set up and run a Prompt Chaining project using crewAI
 
    **Note: The above steps cover the basic project setup without crewAI integration. The commands here are common to all projects. Next, we will integrate crewAI and liteLLM into the project.**
 
-2. Integrating crewAI and liteLLM for Prompt Chaining:
+#### **2. Integrating crewAI and liteLLM for Prompt Chaining:**
 
-a) Set Up the Python Interpreter:
+**a) Set Up the Python Interpreter:**
 
 Ensure that your Python interpreter is set to the environment where crewAI is installed. Open your editor's Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and select Python: Select Interpreter to confirm the correct environment is being used.
 
-b) Import Required Modules:
+**b) Import Required Modules:**
 
 In your Python file, import the necessary decorators from crewAI along with the liteLLM completion function:
 
@@ -66,18 +66,18 @@ from crewai.flow.flow import Flow, start, listen
 from litellm import completion
 ```
 
-c) Connect LiteLLM with crewAI:
+**c) Connect LiteLLM with crewAI:**
 
 After generating your LLM key, connect LiteLLM by creating a `.env` file in your project directory and pasting your secret API key into it.
 
-d) Writing the Prompt-Chaining Schema:
+**d) Writing the Prompt-Chaining Schema:**
 
 There are multiple methods to pass data between chained functions:
 
-- Method 1: Using State:
+- **Method 1:** Using State:
   Update values in a shared state (similar to React state) to use in subsequent functions. This method is recommended as it allows the generated values to be accessed in all upcoming functions.
 
-- Method 2: Using Return Values
+- **Method 2:** Using Return Values
   Return a value from a function to be used as input for the next function. Note that the returned value is only available to the immediate next function.
 
 Below is a sample schema code demonstrating the first & second methods
