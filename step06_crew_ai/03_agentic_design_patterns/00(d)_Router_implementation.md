@@ -7,7 +7,7 @@ As we are aware about the router workflow after reading the `00(a)_intro.md` fil
 Below is a sample schema code that need to be adjusted and we will first import the route along with other decorators:
 
 ```python
-from crewai import Flow, start, listen, router
+from crewai.flow.flow import Flow, start, listen, router
 import random   # import it if you want to use something randomly
 # Step - 2: Below is the workflow schema code
 class RouteFlow(Flow):
@@ -17,15 +17,35 @@ class RouteFlow(Flow):
         print("Asalam-O-Alikum")
 
     @router(greeting) # step 3
-    def select_city():
-        cities=["lahore", "karachi", "bahawalpur", "islamabad"]
+    def select_city(self):
+        cities=["lahore", "karachi", "bahawalpur", "islamabaad"]
         selected_city = random.choice(cities)
-        print(selected_city)
-        return selected_city
+        self.state['city'] = selected_city  # return & save the selected city in state and
 
-    @listen(select_city)
-    def lahore(self,city):
-        print("Write some fun facts about {city}")
+        if selected_city=="lahore":
+            return  'lahore'
+        elif selected_city=="karachi":
+            return 'karachi'
+        elif selected_city=="bahawalpur":
+            return 'bahawalpur'
+        elif selected_city=="islamabaad":
+            return 'islamabaad'
+
+    @listen("lahore")
+    def city1(self):
+        print(f'''Write fun facts about {self.state['city']} city''')
+
+    @listen("karachi")
+    def city2(self):
+        print(f'''Write fun facts about {self.state['city']} city''')
+
+    @listen("bahawalpur")
+    def city3(self):
+        print(f'''Write fun facts about {self.state['city']} city''')
+
+    @listen("islamabaad")
+    def city4(self):
+        print(f'''Write fun facts about {self.state['city']} city''')
 
 
 # step 4 : Kickoff the function
@@ -35,7 +55,7 @@ def execute_1():
 
 def execute_2():
     obj= RouteFlow()
-    obj.plot()
+    obj.plot()   # this will create a plot or flowchart in .html file.
 
 ```
 
@@ -48,7 +68,7 @@ Under [project.scripts], add a script variable for your prompt chaining function
 ```toml
 [project.scripts]
 third_chain = "prompt_chaining.main2:execute_1"
-forth_chain = "prompt_chaining.main2:execute_2"
+third_chain_plot = "prompt_chaining.main2:execute_2"
 ```
 
 **Run the Script:**
@@ -56,5 +76,13 @@ forth_chain = "prompt_chaining.main2:execute_2"
 Run your prompt chaining script via:
 
 ```bash
-  uv run second_chain
+  uv run third_chain  # This is custom made command in toml file
+```
+
+**See the plot of your script using below:**
+
+Run your prompt chaining script via:
+
+```bash
+  uv run third_chain_plot  # This is custom made command in toml file
 ```
