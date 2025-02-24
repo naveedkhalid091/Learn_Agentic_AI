@@ -2,9 +2,9 @@
 
 Anthropic, a company specializing in AI research, has **outlined methodologies for constructing AI Agents**, emphasizing a progression from foundational components to more complex systems. Their approach can be categorized into two primary types:
 
-### 1. **Workflow Based Agents:**
+### 1. **Workflow Based Agents: (Semi-autonomous)**
 
-These agents operate based on predefined sequences of steps to accomplish specific tasks. Developers design structured workflows that the agent follows methodically. For instance, in generating a blog post or thesis, the agent might:
+These agents operate based on predefined sequences of steps to accomplish specific tasks. Developers design structured workflows that the agent follows methodically. For example, in gnerating a blog post or thesis, the agent might:
 
 - **Step 1:** Gather relevant information from various sources.
 - **Step 2:** Verify the accuracy and credibility of the collected content.
@@ -52,6 +52,8 @@ Think of writing a research paper:
 
 Each step helps ensure that the final product is detailed and accurate.
 
+**Note: We will implement the Prompt Chaining concept in the next two sections. i.e. `00(b)_prompt_chaining_implementation_without_liteLLM` & `00(c)_prompt_chaining_implementation_without_liteLLM`**
+
 iii) **Workflow: Routing:**
 
 Routing classifies an input and directs it to a specialized followup task. Without this workflow, optimizing for one kind of input can hurt performance on other inputs.
@@ -67,6 +69,10 @@ Routing classifies an input and directs it to a specialized followup task. Witho
   - **Examples where routing is useful:**
 
     - Directing different types of customer service queries (general questions, refund requests, technical support) into different downstream processes, prompts, and tools.
+
+Read official documentation: [Routing Docs](https://docs.crewai.com/concepts/flows#router)
+
+From the above documentation after reading code example we are now aware that a `router()` decorator is used for classifing an Input and send the input to the speciallized LLMs or different paths.
 
 iv) **Workflow: Parallelization**
 

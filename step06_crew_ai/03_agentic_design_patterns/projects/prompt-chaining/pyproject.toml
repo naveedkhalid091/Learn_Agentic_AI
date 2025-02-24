@@ -16,6 +16,8 @@ prompt-chaining = "prompt_chaining:main"
 start="prompt_chaining.main:function1"
 first_chain="prompt_chaining.main:chain"
 second_chain="prompt_chaining.main:city_name"
+third_chain = "prompt_chaining.router2:execute_1"
+third_chain_plot = "prompt_chaining.router2:execute_2"
 
 [build-system]
 requires = ["hatchling"]
