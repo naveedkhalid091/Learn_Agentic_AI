@@ -2,7 +2,7 @@
 
 There are three methods to deploy your CrewAI project.
 
-CrewAI deployment is only available for Enterprises, means that the **deployment services are paid** however your can deploy your one project for free in the crewAI but you can **process only first 50 requests** from the deployed project, after that you have to buy the crewAI services.
+**Note:** CrewAI deployment is only available for Enterprises, means that the **deployment services are paid** however your can deploy your one project for free in the crewAI but you can **process only first 50 requests** from the deployed project, after that you have to buy the crewAI services.
 
 When your crew project is running perfectly fine then you can decide to pay CrewAI.
 
@@ -41,7 +41,7 @@ GEMINI_API_KEY= WRITE_KEY_HERE
 MODEL=WRITE_YOUR_MODEL_PATH_HERE   # e.g MODEL=gemini/gemini-2.0-flash
 ```
 
-**Step-5** : You will now write your code and create your project, but here we are only learning to deploy the project that's why we will not write code and simply deploy the readymade project called `poem flow` that was created through above command:
+**Step-5** : You will now write your code and create your project, but here we are only learning to deploy the project that's why we will not write code and simply deploy the ready made project called `poem flow` that was created through above command:
 
 **Step-6:** Before Deployment, and after writing code, we will first `sync` the project as follows:
 
@@ -107,4 +107,9 @@ As per the standards, now our project is ready for deployment.
 
 - Create your CrewAI account into the official website.
 - Login into your account.
-- 
+- Link your Gitgub repo (Project) with CrewAI from your official account
+- Click on the **Deploy** button to deploy your project.
+
+Note: You can only deploy your one project into crewAI for free.
+
+After Deployment it will give us API to use the Deployed project, the API will be generated with the help of FastAPI.
