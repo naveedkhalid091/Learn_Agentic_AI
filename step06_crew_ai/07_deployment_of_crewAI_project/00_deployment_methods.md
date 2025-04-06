@@ -100,3 +100,11 @@ run_crew= "project1.main:kickoff"  # where project1=projectName
 ```
 
 As per the standards, now our project is ready for deployment.
+
+**Step-10:** Now push your project into github.
+
+**Step-11:** Integrate your project with CrewAI deployment.
+
+- Create your CrewAI account into the official website.
+- Login into your account.
+- 
