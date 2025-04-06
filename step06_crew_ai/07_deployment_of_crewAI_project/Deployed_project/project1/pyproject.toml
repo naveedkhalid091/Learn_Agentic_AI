@@ -1,20 +1,17 @@
 [project]
-name = "tools_project"
+name = "project1"
 version = "0.1.0"
-description = "tools_project using crewAI"
+description = "project1 using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "crewai[tools]>=0.102.0,<1.0.0",
-    "databricks-sdk>=0.46.0",
-    "langchain-google-genai>=2.1.0",
 ]
 
 [project.scripts]
-kickoff = "tools_project.main:kickoff"
-plot = "tools_project.main:plot"
-writter="tools_project.main1:my_writter"
-create_card="tools_project.main2:my_card"
+kickoff = "project1.main:kickoff"
+run_crew= "project1.main:kickoff"
+plot = "project1.main:plot"
 
 [build-system]
 requires = ["hatchling"]

@@ -13,31 +13,34 @@ import os
 
 # Setup API Keys & MODEL
 
-GEMINI_API_KEY=os.environ.get("GEMINI_API_KEY")
-SERPER_API_KEY=os.environ.get("SERPER_API_KEY")
-MODEL=os.environ.get("MODEL")
+GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
+SERPER_API_KEY=os.getenv("SERPER_API_KEY")
+MODEL=os.getenv("MODEL")
 
 # llm 
 
 llm1=LLM(model="gemini/gemini-2.0-flash")
 
-# Instantiate Tools
-
-docs_tool=DirectoryReadTool(directory='./blog-posts')
-file_tool=FileReadTool()
-search_tool=SerperDevTool()
-web_rag_tool=WebsiteSearchTool()
-
-
 # embedder_config
 
 embedder_config ={
-    "provider":"gemini",
+    "provider":"google",
     "config":{
         "model":"models/text-embedding-004",
-        "api-key":os.getenv.get("GEMINI_API_KEY")
+        "api-key":os.getenv("GEMINI_API_KEY")
         }
  }
+
+# Instantiate Tools
+
+docs_tool=DirectoryReadTool(
+    directory='./blog-posts',
+    embedder=embedder_config)
+
+file_tool=FileReadTool(embedder=embedder_config)
+search_tool=SerperDevTool(embedder=embedder_config)
+web_rag_tool=WebsiteSearchTool(embedder=embedder_config)
+
 
 # Create multi-agents
 
@@ -78,9 +81,9 @@ crew=Crew(
     agents=[researcher,writter],
     tasks=[research,write],
     verbose=True,
-    planning=True, # Enable Planning feature - for this crewai decide on its own what to search and when to search, is the seached content is enough or not? Shall I need to search again? 
-    planning_llm=llm1, # This is an another planning agent
-    embedder=embedder_config
+    # planning=True, # Enable Planning feature - for this crewai decide on its own what to search and when to search, is the seached content is enough or not? Shall I need to search again? 
+    # planning_llm=llm1, # This is an another planning agent
+    # embedder=embedder_config
 )
 
 def my_writter():
