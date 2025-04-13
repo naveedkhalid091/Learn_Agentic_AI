@@ -56,7 +56,7 @@ Each step helps ensure that the final product is detailed and accurate.
 
 iii) **Workflow: Routing:**
 
-Routing classifies an input and directs it to a specialized followup task. Without this workflow, optimizing for one kind of input can hurt performance on other inputs.
+Based on the task's (prompt) nature, the tasks are directed to the most appropriate agent through the routing mechanism.
 
 **Example of understanding a routing system:**
 
@@ -96,7 +96,7 @@ v) **Workflow: Orchestrator-workers:**
 
 vi) **Workflow: Evaluator-Optimizer**
 
-- In the evaluator-optimizer workflow, one LLM call generates a response while another provides evaluation and feedback in a loop and finall response is sent to the users if the evaluation and feedbackback are good.
+- In the evaluator-optimizer workflow, one LLM call generates a response while another provides evaluation and feedback in a loop and final response is sent to the users if the evaluation and feedbackback are good.
 
   - **For Exmaple:**
 

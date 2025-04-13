@@ -1,0 +1,26 @@
+[project]
+name = "monitoring_crew"
+version = "0.1.0"
+description = "monitoring_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "agentops>=0.4.3",
+    "crewai[agentops]>=0.108.0",
+    "openlit>=1.33.19",
+    "opentelemetry-sdk>=1.27.0",
+]
+
+[project.scripts]
+monitoring_crew = "monitoring_crew.main:run"
+run_crew = "monitoring_crew.main:run"
+train = "monitoring_crew.main:train"
+replay = "monitoring_crew.main:replay"
+test = "monitoring_crew.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
