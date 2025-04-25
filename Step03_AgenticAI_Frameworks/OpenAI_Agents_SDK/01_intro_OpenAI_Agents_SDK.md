@@ -20,7 +20,7 @@ The OpenAI Agents SDK is a framework that helps developers create smart AI progr
 
 ### Key Features of OpenAI Agents SDK:
 
-### Why use the Agents SDK:
+### Why use the OpenAI Agents SDK:
 
 - **Balance of Features and Simplicity:** It offers enough features to be practical for real-world applications while maintaining a small set of primitives to ensure quick learning and adoption.
 - **Out-of-the-Box Functionality with Customization:** The SDK works well immediately upon installation but is fully customizable to meet specific needs, such as integrating with existing systems or tailoring agent behavior.
