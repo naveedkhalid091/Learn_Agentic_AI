@@ -1,0 +1,20 @@
+[project]
+name = "zaikasekho"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Naveed", email = "naveedkhalid091@yahoo.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "chainlit>=2.5.5",
+    "openai-agents>=0.0.14",
+]
+
+[project.scripts]
+zaikasekho = "zaikasekho:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
